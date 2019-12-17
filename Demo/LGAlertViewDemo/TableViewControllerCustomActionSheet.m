@@ -73,6 +73,10 @@
                                                           cancelHandler:nil
                                                      destructiveHandler:nil];
 
+            [alertView setButtonPropertiesAtIndex:0 handler:^(LGAlertViewButtonProperties * _Nonnull properties) {
+                properties.accessibilityId = @"Custom.Accessibility.Identifier";
+            }];
+
             [alertView showAnimated:YES completionHandler:nil];
 
             break;

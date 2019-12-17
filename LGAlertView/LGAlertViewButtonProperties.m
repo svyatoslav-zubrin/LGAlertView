@@ -48,6 +48,7 @@
 @property (readwrite) BOOL userAdjustsFontSizeTofitWidth;
 @property (readwrite) BOOL userIconPosition;
 @property (readwrite) BOOL userEnabled;
+@property (readwrite) BOOL userAccessibilityId;
 
 @end
 
@@ -66,6 +67,7 @@
         self.iconImageHighlighted = [coder decodeObjectForKey:@"iconImageHighlighted"];
         self.iconImageDisabled = [coder decodeObjectForKey:@"iconImageDisabled"];
         self.font = [coder decodeObjectForKey:@"font"];
+        self.accessibilityId = [coder decodeObjectForKey:@"accessibilityId"];
     }
     return self;
 }
@@ -81,6 +83,7 @@
     [coder encodeObject:self.iconImageHighlighted forKey:@"iconImageHighlighted"];
     [coder encodeObject:self.iconImageDisabled forKey:@"iconImageDisabled"];
     [coder encodeObject:self.font forKey:@"font"];
+    [coder encodeObject:self.accessibilityId forKey:@"accessibilityId"];
 }
 
 #pragma mark -
@@ -168,6 +171,11 @@
 - (void)setEnabled:(BOOL)enabled {
     _enabled = enabled;
     self.userEnabled = YES;
+}
+
+- (void)setAccessibilityId:(NSString *)accessibilityId {
+    _accessibilityId = accessibilityId;
+    self.userAccessibilityId = YES;
 }
 
 @end

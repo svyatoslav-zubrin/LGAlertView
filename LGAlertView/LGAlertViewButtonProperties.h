@@ -54,6 +54,8 @@
 
 @property (assign, nonatomic, getter=isEnabled) BOOL enabled;
 
+@property (strong, nonatomic, nullable) NSString *accessibilityId;
+
 @property (assign, nonatomic, readonly, getter=isUserTitleColor)                 BOOL userTitleColor;
 @property (assign, nonatomic, readonly, getter=isUserTitleColorHighlighted)      BOOL userTitleColorHighlighted;
 @property (assign, nonatomic, readonly, getter=isUserTitleColorDisabled)         BOOL userTitleColorDisabled;
@@ -71,5 +73,6 @@
 @property (assign, nonatomic, readonly, getter=isUserAdjustsFontSizeTofitWidth)  BOOL userAdjustsFontSizeTofitWidth;
 @property (assign, nonatomic, readonly, getter=isUserIconPosition)               BOOL userIconPosition;
 @property (assign, nonatomic, readonly, getter=isUserEnabled)                    BOOL userEnabled;
+@property (assign, nonatomic, readonly, getter=isUserAccessibilityId)            BOOL userAccessibilityId;
 
 @end

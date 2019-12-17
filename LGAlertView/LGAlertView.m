@@ -1602,6 +1602,10 @@ LGAlertViewType;
         cell.textLabel.minimumScaleFactor        = (properties.isUserMinimimScaleFactor ? properties.minimumScaleFactor : self.buttonsMinimumScaleFactor);
 
         cell.enabled = [self.buttonsEnabledArray[buttonIndex] boolValue];
+
+        if (properties.isUserAccessibilityId) {
+            cell.accessibilityIdentifier = properties.accessibilityId;
+        }
     }
 }
 
@@ -2421,6 +2425,7 @@ LGAlertViewType;
                     if (self.buttonTitles.count > 0 && !showTable) {
                         LGAlertViewButtonProperties *properties = nil;
 
+                        // props for first button
                         if (self.buttonsPropertiesDictionary) {
                             properties = self.buttonsPropertiesDictionary[@0];
                         }
@@ -2484,6 +2489,10 @@ LGAlertViewType;
 
                         [self.firstButton setImage:imageDisabled forState:UIControlStateDisabled];
 
+                        if (properties.isUserAccessibilityId) {
+                            self.firstButton.accessibilityIdentifier = properties.accessibilityId;
+                        }
+
                         if (self.firstButton.titleLabel.textAlignment == NSTextAlignmentLeft) {
                             self.firstButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                         }
@@ -2510,6 +2519,7 @@ LGAlertViewType;
                         if (self.buttonTitles.count > 1 && !showTable) {
                             LGAlertViewButtonProperties *properties = nil;
 
+                            // props for the second button
                             if (self.buttonsPropertiesDictionary) {
                                 properties = self.buttonsPropertiesDictionary[@1];
                             }
@@ -2573,6 +2583,10 @@ LGAlertViewType;
 
                             [self.secondButton setImage:imageDisabled forState:UIControlStateDisabled];
 
+                            if (properties.isUserAccessibilityId) {
+                                self.secondButton.accessibilityIdentifier = properties.accessibilityId;
+                            }
+
                             if (self.secondButton.titleLabel.textAlignment == NSTextAlignmentLeft) {
                                 self.secondButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                             }
@@ -2599,6 +2613,7 @@ LGAlertViewType;
                             if (self.buttonTitles.count > 2 && !showTable) {
                                 LGAlertViewButtonProperties *properties = nil;
 
+                                // props for the third button
                                 if (self.buttonsPropertiesDictionary) {
                                     properties = self.buttonsPropertiesDictionary[@2];
                                 }
@@ -2661,6 +2676,10 @@ LGAlertViewType;
                                 }
 
                                 [self.thirdButton setImage:imageDisabled forState:UIControlStateDisabled];
+
+                                if (properties.isUserAccessibilityId) {
+                                    self.thirdButton.accessibilityIdentifier = properties.accessibilityId;
+                                }
 
                                 if (self.thirdButton.titleLabel.textAlignment == NSTextAlignmentLeft) {
                                     self.thirdButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
