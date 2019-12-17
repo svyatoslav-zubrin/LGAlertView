@@ -1517,6 +1517,8 @@ LGAlertViewType;
         cell.textLabel.adjustsFontSizeToFitWidth = self.destructiveButtonAdjustsFontSizeToFitWidth;
         cell.textLabel.minimumScaleFactor        = self.destructiveButtonMinimumScaleFactor;
 
+        cell.accessibilityIdentifier = @"LGAlertView.Cell.Destructive";
+
         cell.enabled = self.destructiveButtonEnabled;
     }
     else if (self.cancelButtonTitle && ![LGAlertViewHelper isCancelButtonSeparate:self] && indexPath.row == self.buttonTitles.count - 1) {
@@ -1539,6 +1541,8 @@ LGAlertViewType;
         cell.textLabel.lineBreakMode             = self.cancelButtonLineBreakMode;
         cell.textLabel.adjustsFontSizeToFitWidth = self.cancelButtonAdjustsFontSizeToFitWidth;
         cell.textLabel.minimumScaleFactor        = self.cancelButtonMinimumScaleFactor;
+
+        cell.accessibilityIdentifier = @"LGAlertView.Cell.Cancel";
 
         cell.enabled = self.cancelButtonEnabled;
     }
@@ -2099,6 +2103,8 @@ LGAlertViewType;
             self.titleLabel.backgroundColor = UIColor.clearColor;
             self.titleLabel.font = self.titleFont;
 
+            self.titleLabel.accessibilityIdentifier = @"LGAlertView.Label.Title";
+
             CGSize titleLabelSize = [self.titleLabel sizeThatFits:CGSizeMake(width - LGAlertViewPaddingWidth * 2.0, CGFLOAT_MAX)];
             CGRect titleLabelFrame = CGRectMake(LGAlertViewPaddingWidth, self.innerMarginHeight, width - LGAlertViewPaddingWidth * 2.0, titleLabelSize.height);
 
@@ -2121,6 +2127,7 @@ LGAlertViewType;
             self.messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
             self.messageLabel.backgroundColor = UIColor.clearColor;
             self.messageLabel.font = self.messageFont;
+            self.messageLabel.accessibilityIdentifier = @"LGAlertView.Label.Message";
 
             if (!offsetY) {
                 offsetY = self.innerMarginHeight / 2.0;
@@ -2404,6 +2411,8 @@ LGAlertViewType;
 
                         self.destructiveButton.enabled = self.destructiveButtonEnabled;
                         [self.destructiveButton addTarget:self action:@selector(destructiveAction:) forControlEvents:UIControlEventTouchUpInside];
+
+                        self.destructiveButton.accessibilityIdentifier = @"LGAlertView.Button.Destructive";
 
                         CGSize size = [self.destructiveButton sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
 
@@ -3137,6 +3146,8 @@ LGAlertViewType;
 
     self.cancelButton.enabled = self.cancelButtonEnabled;
     [self.cancelButton addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
+
+    self.cancelButton.accessibilityIdentifier = @"LGAlertView.Button.Cancel";
 }
 
 #pragma mark - Actions
